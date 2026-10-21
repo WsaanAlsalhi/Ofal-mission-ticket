@@ -48,9 +48,9 @@ export default function Admin() {
   }, [rows, password]);
 
   function exportCsv() {
-    const head = "mission_id,seat,name,email,team,created_at";
+    const head = "mission_id,seat,name,country,team,created_at";
     const esc = (v) => `"${String(v ?? "").replace(/"/g, '""')}"`;
-    const body = rows.map((r) => [r.mission_id, r.seat, r.name, r.email, r.team, r.created_at].map(esc).join(","));
+    const body = rows.map((r) => [r.mission_id, r.seat, r.name, r.country, r.team, r.created_at].map(esc).join(","));
     const blob = new Blob(["\ufeff" + [head, ...body].join("\n")], { type: "text/csv;charset=utf-8" });
     const a = document.createElement("a");
     a.href = URL.createObjectURL(blob);
@@ -79,12 +79,12 @@ export default function Admin() {
       <div className="actions"><button onClick={exportCsv}>Download names (CSV)</button></div>
       <div className="scroll">
         <table>
-          <thead><tr><th>Mission ID</th><th>Seat</th><th>Name</th><th>Email</th><th>Team</th><th>Time</th></tr></thead>
+          <thead><tr><th>Mission ID</th><th>Seat</th><th>Name</th><th>Country</th><th>Team</th><th>Time</th></tr></thead>
           <tbody>
             {rows.map((r) => (
               <tr key={r.id}>
                 <td>{r.mission_id}</td><td>{r.seat}</td><td>{r.name}</td>
-                <td>{r.email}</td><td>{r.team}</td><td>{new Date(r.created_at).toLocaleString()}</td>
+                <td>{r.country}</td><td>{r.team}</td><td>{new Date(r.created_at).toLocaleString()}</td>
               </tr>
             ))}
           </tbody>
