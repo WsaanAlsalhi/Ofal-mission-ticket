@@ -110,7 +110,7 @@ export default function Home() {
             <p className="tag">One team. One mission. Beyond limits.</p>
             <h1>Claim your seat on the launch.</h1>
             <p className="lead">
-              Register for free and your Race2Space Oman 2026 ticket is ready in seconds.
+              Register for free and your R2S Ofal team 2026 ticket is ready in seconds.
               Save it as an image and share it.
             </p>
             <form onSubmit={submit}>
@@ -125,7 +125,7 @@ export default function Home() {
               {error && <div className="error" role="alert">{error}</div>}
               <button disabled={busy}>{busy ? "Preparing launch..." : "Get my ticket"}</button>
             </form>
-            <p className="foot">Sultan Qaboos University, Race2Space Oman 2026</p>
+            <p className="foot">Sultan Qaboos University, R2S Ofal team 2026</p>
           </div>
           <div className="stage">
             <Rocket />
