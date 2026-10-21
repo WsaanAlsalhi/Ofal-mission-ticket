@@ -15,15 +15,15 @@ export async function POST(req) {
   try {
     const body = await req.json();
     const name = String(body.name || "").trim().slice(0, 60);
-    const email = String(body.email || "").trim().slice(0, 100);
-    const team = String(body.team || "").trim().slice(0, 40);
+    const country = String(body.country || "").trim().slice(0, 40);
 
     if (!name) return Response.json({ error: "Name is required." }, { status: 400 });
+    if (!country) return Response.json({ error: "Country is required." }, { status: 400 });
 
     const db = supabase();
     const { data: inserted, error } = await db
       .from("rocket_participants")
-      .insert({ name, email, team })
+      .insert({ name, country, team: "OFal" })
       .select("id")
       .single();
     if (error) throw error;
@@ -35,7 +35,7 @@ export async function POST(req) {
       .from("rocket_participants")
       .update({ mission_id, seat })
       .eq("id", inserted.id)
-      .select("id, name, team, mission_id, seat, created_at")
+      .select("id, name, country, team, mission_id, seat, created_at")
       .single();
     if (upErr) throw upErr;
 
