@@ -11,7 +11,7 @@ export async function GET(req) {
   const db = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY);
   const { data, error } = await db
     .from("rocket_participants")
-    .select("id, name, email, team, mission_id, seat, created_at")
+    .select("id, name, country, team, mission_id, seat, created_at")
     .order("id", { ascending: false });
   if (error) return Response.json({ error: error.message }, { status: 500 });
   return Response.json({ rows: data });
