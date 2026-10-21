@@ -108,10 +108,10 @@ export default function Home() {
         <section className="hero">
           <div>
             <p className="tag">One team. One mission. Beyond limits.</p>
-            <h1>Claim your seat on the launch.</h1>
+            <h1>Claim your seat on the launch</h1>
             <p className="lead">
-              Register for free and your R2S Ofal team 2026 ticket is ready in seconds.
-              Save it as an image and share it.
+              Register for free and your R2S Ofal team 2026 ticket is ready in seconds
+              Save it as an image and share it
             </p>
             <form onSubmit={submit}>
               <label>Full name
