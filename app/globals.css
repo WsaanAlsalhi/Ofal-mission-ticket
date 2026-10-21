@@ -1,0 +1,25 @@
+:root { --navy:#0b1226; --coral:#ef4a5f; --paper:#f6f6f8; --line:#d9dbe3; }
+* { box-sizing: border-box; }
+body { margin:0; font-family: Arial, Helvetica, sans-serif; background: var(--navy); color: #fff; min-height:100vh; }
+main { max-width: 980px; margin: 0 auto; padding: 32px 18px 64px; }
+h1 { font-size: clamp(28px, 5vw, 44px); margin: 0 0 8px; line-height: 1.1; }
+p.lead { color:#b9bfd3; margin: 0 0 28px; max-width: 56ch; }
+form { display:grid; gap:14px; background:#fff; color:var(--navy); padding:22px; border-radius:14px; max-width:520px; }
+label { display:grid; gap:6px; font-weight:700; font-size:14px; }
+input { padding:12px; border:1px solid var(--line); border-radius:8px; font-size:16px; }
+input:focus-visible, button:focus-visible { outline:3px solid var(--coral); outline-offset:2px; }
+button { padding:13px 18px; border:0; border-radius:8px; font-size:16px; font-weight:700; cursor:pointer; background:var(--coral); color:#fff; }
+button.ghost { background:transparent; color:#fff; border:1px solid #5a6384; }
+button:disabled { opacity:.6; cursor:wait; }
+.error { color:#b3261e; font-weight:700; }
+.ticket-wrap { margin-top:28px; }
+.ticket-wrap canvas { width:100%; height:auto; border-radius:14px; display:block; }
+.actions { display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; }
+.grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap:14px; margin-top:16px; }
+.card { background:#fff; color:var(--navy); border-radius:12px; padding:10px; }
+.card canvas { width:100%; height:auto; border-radius:8px; display:block; }
+.card small { display:block; margin-top:6px; color:#5a6384; }
+table { width:100%; border-collapse:collapse; background:#fff; color:var(--navy); border-radius:10px; overflow:hidden; margin-top:16px; }
+th, td { text-align:left; padding:10px; border-bottom:1px solid var(--line); font-size:14px; }
+.scroll { overflow-x:auto; }
+@media (prefers-reduced-motion: reduce) { * { transition:none !important; animation:none !important; } }
