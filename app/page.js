@@ -21,7 +21,7 @@ function TicketCanvas({ row, onReady }) {
 }
 
 export default function Home() {
-  const [form, setForm] = useState({ name: "", email: "", team: "" });
+  const [form, setForm] = useState({ name: "", country: "" });
   const [current, setCurrent] = useState(null);
   const [mine, setMine] = useState([]);
   const [busy, setBusy] = useState(false);
@@ -61,7 +61,7 @@ export default function Home() {
 
   function another() {
     setCurrent(null);
-    setForm({ name: "", email: "", team: "" });
+    setForm({ name: "", country: "" });
   }
 
   return (
@@ -75,13 +75,9 @@ export default function Home() {
             <input required maxLength={60} value={form.name}
               onChange={(e) => setForm({ ...form, name: e.target.value })} />
           </label>
-          <label>Email
-            <input type="email" maxLength={100} value={form.email}
-              onChange={(e) => setForm({ ...form, email: e.target.value })} />
-          </label>
-          <label>Team
-            <input maxLength={40} value={form.team}
-              onChange={(e) => setForm({ ...form, team: e.target.value })} />
+          <label>Country
+            <input required maxLength={40} placeholder="Oman" value={form.country}
+              onChange={(e) => setForm({ ...form, country: e.target.value })} />
           </label>
           {error && <div className="error" role="alert">{error}</div>}
           <button disabled={busy}>{busy ? "Creating ticket..." : "Get my ticket"}</button>
